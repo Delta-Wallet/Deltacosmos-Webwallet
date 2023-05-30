@@ -1,4 +1,4 @@
-# math-cosmos-web-wallet
+# delta-cosmos-web-wallet
 
 ## Build Setup
 
