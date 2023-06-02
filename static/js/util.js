@@ -1,13 +1,13 @@
 class Util {
-  async initMathExtension() {
+  async initdetaExtension() {
       var tries = 10;
       for (var i = 0; i < tries; i++) {
         var loaded = await new Promise((resolve, reject) => {
           setTimeout(function() {
-            resolve(typeof window.mathExtension != 'undefined');
+            resolve(typeof window.detaExtension != 'undefined');
           }, 100);
         });
-        if (loaded) return window.mathExtension;
+        if (loaded) return window.detaExtension;
       }
       return false;
     }

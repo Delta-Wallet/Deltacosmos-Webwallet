@@ -2,7 +2,7 @@
   <div id="app">
     <web-nav></web-nav>
     <router-view/>
-    <footer class="copyright">© 2019 Math Global Co., Ltd. All rights reserved.</footer>
+    <footer class="copyright">© 2019 deta Global Co., Ltd. All rights reserved.</footer>
   </div>
 </template>
 

@@ -64,10 +64,10 @@ export default {
       }
     },
     logout() {
-      this.webUtil.initMathExtension().then((res) => {
-        return mathExtension.getIdentity(this.network);
+      this.webUtil.initdetaExtension().then((res) => {
+        return detaExtension.getIdentity(this.network);
       }).then((identity) => {
-        mathExtension.forgetIdentity(this.network).then(() => {
+        detaExtension.forgetIdentity(this.network).then(() => {
           this.webUtil.setCookie("identity_"+this.blockchain_lowercase, '', {
             expires: -30,
             path: '/'

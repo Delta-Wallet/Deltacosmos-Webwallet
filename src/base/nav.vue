@@ -1,7 +1,7 @@
 <template>
-<nav class="math-nav clearfix">
+<nav class="deta-nav clearfix">
 	<div class="float-right">
-    <a href="https://mathwallet.org" class="mobile" target="_blank">
+    <a href="https://detawallet.org" class="mobile" target="_blank">
       <img src="static/img/icons/phone_blue@2x.png" height="16">
       <span>{{$t('webwallet_mobile_app')}}</span>
     </a>
@@ -22,7 +22,7 @@
       </ul>
     </div>
   </div>
-  <a class="logo" href="https://mathwallet.org" target="_blank"><img src="static/img/icons/mathwallet_webwallet@2x.png" height="32"></a>
+  <a class="logo" href="https://detawallet.org" target="_blank"><img src="static/img/icons/detawallet_webwallet@2x.png" height="32"></a>
 </nav>
 </template>
 <script>

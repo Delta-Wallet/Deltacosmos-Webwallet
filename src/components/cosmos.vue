@@ -201,9 +201,9 @@ export default {
           let max = _this.progress.max;
           let min = _this.progress.min;
 
-          _this.progress.per = Math.ceil((max - min) * scale + min);
-          _this.progress.per = Math.max(_this.progress.per, min);
-          _this.progress.per = Math.min(_this.progress.per, max);
+          _this.progress.per = deta.ceil((max - min) * scale + min);
+          _this.progress.per = deta.max(_this.progress.per, min);
+          _this.progress.per = deta.min(_this.progress.per, max);
           _this.transfer.fee = 0.015 * (_this.progress.per / max).toFixed(6)
 
         }
@@ -215,10 +215,10 @@ export default {
     },
     initExtension() {
       let nodeUrl = this.globalData.cosmos.nodeUrl;
-      this.webUtil.initMathExtension().then((res) => {
+      this.webUtil.initdetaExtension().then((res) => {
         let account = this.account;
         this.progressSlide();
-        let provider = mathExtension.httpProvider(nodeUrl);
+        let provider = detaExtension.httpProvider(nodeUrl);
         let promise1 = new Promise((resolve, reject) => {
           //获取ATOM价格
           this.$http.get('https://api.coinmarketcap.com/v1/ticker/cosmos/?convert=CNY').then(res => {
@@ -265,7 +265,7 @@ export default {
               if(coins){
                 coins.forEach((coin) => {
                   if (coin.denom == 'uatom') {
-                    this.balances.list.available = parseFloat(coin.amount) / Math.pow(10,6);
+                    this.balances.list.available = parseFloat(coin.amount) / deta.pow(10,6);
                   }
                 });
               }
@@ -277,7 +277,7 @@ export default {
               let result = res2.result.result;
               if (result) {
                 for (let i = 0; i < result.length; i++) {
-                  result[i].shares = parseFloat(result[i].shares) / Math.pow(10,6);
+                  result[i].shares = parseFloat(result[i].shares) / deta.pow(10,6);
                   this.balances.list.delegate = this.balances.list.delegate + result[i].shares;
                 }
                 this.balances.sum = this.balances.sum + this.balances.list.delegate;
@@ -289,7 +289,7 @@ export default {
                 if (res) {
                   res.forEach((value) => {
                     value.entries.forEach((undelegate) => {
-                      let balance = parseFloat(undelegate.balance) / Math.pow(10,6);
+                      let balance = parseFloat(undelegate.balance) / deta.pow(10,6);
                       this.balances.list.undelegate = this.balances.list.undelegate + balance;
                     });
                   });
@@ -338,23 +338,23 @@ export default {
         alert(this.$t('transfer_amount_null'));
         return false;
       }
-      if(this.transfer.amount<Math.pow(10,-6)){
-        alert(this.$t('transfer_amount_min')+Math.pow(10,-6));
+      if(this.transfer.amount<deta.pow(10,-6)){
+        alert(this.$t('transfer_amount_min')+deta.pow(10,-6));
         return false;
       }
       let nodeUrl = this.globalData.cosmos.nodeUrl;
-      this.webUtil.initMathExtension().then((res) => {
-        return mathExtension.getIdentity(this.network);
+      this.webUtil.initdetaExtension().then((res) => {
+        return detaExtension.getIdentity(this.network);
       }).then((identity) => {
         let account = identity.account;
-        let provider = mathExtension.httpProvider(nodeUrl);
+        let provider = detaExtension.httpProvider(nodeUrl);
         // 获取手续费
         // 普通设置
-        let fee = this.transfer.fee * Math.pow(10,6);
+        let fee = this.transfer.fee * deta.pow(10,6);
         let limit = 30000;
         // 高级设置
         if (this.selectedSet == 2) {
-          fee = this.transfer.gasPrice * this.transfer.gasLimit * Math.pow(10,6);
+          fee = this.transfer.gasPrice * this.transfer.gasLimit * deta.pow(10,6);
           limit = this.transfer.gasLimit;
         }
         let transaction = {
@@ -373,12 +373,12 @@ export default {
             to: this.transfer.account,
             coins: [{
               denom: "uatom",
-              amount: this.transfer.amount*Math.pow(10,6)
+              amount: this.transfer.amount*deta.pow(10,6)
             }]
           }
         };
 
-        mathExtension.requestSignature(transaction, this.network).then(signedTransaction => {
+        detaExtension.requestSignature(transaction, this.network).then(signedTransaction => {
           const opts = {
             data: signedTransaction,
             headers: {

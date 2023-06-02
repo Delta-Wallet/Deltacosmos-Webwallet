@@ -35,8 +35,8 @@ export default {
     login(){
       let nodeUrl = this.nodeUrl;
       let network = this.network;
-      this.webUtil.initMathExtension().then((res) => {
-        return mathExtension.getIdentity(network);
+      this.webUtil.initdetaExtension().then((res) => {
+        return detaExtension.getIdentity(network);
       }).then((identity) => {
         this.webUtil.setCookie("identity_"+this.blockchain_lowercase, JSON.stringify(identity), {
           expires: 30,
@@ -44,7 +44,7 @@ export default {
         });
         this.$emit('sendAccount', identity)
       }).catch(err=>{
-        alert(this.$t('noMathExtension'));
+        alert(this.$t('nodetaExtension'));
       })
     }
   }

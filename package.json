@@ -1,8 +1,8 @@
 {
-  "name": "math-cosmos-web-wallet",
+  "name": "deta-cosmos-web-wallet",
   "version": "1.0.0",
-  "description": "math-cosmos-web-wallet",
-  "author": "math",
+  "description": "deta-cosmos-web-wallet",
+  "author": "deta",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

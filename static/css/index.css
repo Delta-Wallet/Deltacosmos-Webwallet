@@ -124,7 +124,7 @@ i {
 
 /*nav*/
 
-.math-nav {
+.deta-nav {
   background: var(--darkbg);
   padding: 16px 24px;
   position: fixed;
@@ -134,12 +134,12 @@ i {
   z-index: 500;
 }
 
-.math-nav a,
-.math-nav a:hover {
+.deta-nav a,
+.deta-nav a:hover {
   color: #fff;
 }
 
-.math-nav .dropdown {
+.deta-nav .dropdown {
   display: inline-block;
   padding-left: 24px;
 }
@@ -150,23 +150,23 @@ i {
   overflow: hidden;
 }
 
-.math-nav .dropdown li {
+.deta-nav .dropdown li {
   cursor: pointer;
   padding: 6px 20px;
 }
 
-.math-nav .float-right .mobile {
+.deta-nav .float-right .mobile {
   color: #5ac8fa;
   padding-right: 24px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.math-nav .float-right {
+.deta-nav .float-right {
   padding: 8px;
   line-height: 16px;
 }
 
-.math-nav img+span {
+.deta-nav img+span {
   vertical-align: text-top;
 }
 
