@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # deta-cosmos-web-wallet
-=======
-# delta-cosmos-web-wallet
->>>>>>> b51a3d4de2bc4b39bb498cd52bd72f7627d18df2
 
 ## Build Setup
 
